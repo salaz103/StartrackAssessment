@@ -5,7 +5,9 @@ type SetHeroesAction = {
     heroes:HeroesData
 }
 
+
 export const setHeroes=(Heroes:HeroesData):SetHeroesAction=>({
     type:"SET_HEROES",
     heroes:Heroes
 })
+

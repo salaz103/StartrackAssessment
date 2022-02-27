@@ -1,4 +1,4 @@
-interface Powerstats{
+export interface Powerstats{
       intelligence: number,
       strength: number,
       speed: number,
@@ -7,7 +7,7 @@ interface Powerstats{
       combat: number
 }
 
-interface Images{
+export interface Images{
       xs: string,
       sm: string,
       md: string,

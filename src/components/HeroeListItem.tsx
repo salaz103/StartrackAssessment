@@ -1,9 +1,22 @@
 import React from 'react';
+import { Images, Powerstats } from '../HeroesData/Heroes';
 
-function HeroListItem() {
-  return (
-<h2>Heroe Item</h2>
-  );
+interface HeroesProps {
+  name: string;
+  powerstats: Powerstats;
+  images: Images;
 }
 
-export default HeroListItem;
+function HeroeListItem(Heroes: HeroesProps) {
+
+  return (
+    <div>
+      <h3 >{Heroes.name}</h3>
+      <img src={Heroes.images.xs} />
+    </div>
+
+  )
+}
+
+
+export default HeroeListItem;

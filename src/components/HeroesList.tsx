@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect, useSelector } from 'react-redux';
-import HeroesData from '../HeroesData/Heroes';
 import { HeroesState } from '../reducers/heroesReducer';
+import getVisibleHeroes from '../selector/heroes';
 import HeroeListItem from './HeroeListItem';
 
 
-function HeroesList(){
-   const heroes = useSelector<HeroesState, HeroesState["heroes"]>((state)=> state.heroes)
-   console.log(heroes);
+function HeroesList() {
+    const [searchTerm,setSearchTerm]= useState("");
+    const heroes = useSelector<HeroesState, HeroesState["heroes"]>((state) => state.heroes)
+    //const finalHeroes= getVisibleHeroes(heroes,filter);
 
-    return(
+    return (
         <div>
+            <input
+            type="text"
+            placeholder='Look for more Heroes'
+            onChange={(event)=>{
+                setSearchTerm(event.target.value)
+            }}
+            />
             <ul>
                 {
-                   heroes.map((heroe)=>{
-                       return <img src={heroe.images.xs}></img>
-                   })
+
+                    heroes.filter((val)=>{
+                        if(searchTerm==""){
+                            return val
+                        }else if(val.name.toLocaleLowerCase().includes(searchTerm.toLowerCase())){
+                            return val
+                        }
+                    }).map((heroe) => {
+                        return <HeroeListItem key={heroe.id} {...heroe} />
+                    })
                 }
             </ul>
         </div>
