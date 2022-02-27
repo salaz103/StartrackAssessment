@@ -14,6 +14,11 @@ export interface Images{
       lg: string
 }
 
+export interface Biography{
+      fullName:string,
+      alterEgos:string,
+}
+
 
 export default interface HeroesData {
     id:number,
@@ -24,7 +29,7 @@ export default interface HeroesData {
     weight:object,
     eyeColor:string,
     hairColor:string,
-    biography:object,
+    biography:Biography,
     placeOfBirth: string,
     firstAppearance: string,
     publisher: string,

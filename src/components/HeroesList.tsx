@@ -14,12 +14,14 @@ function HeroesList() {
     console.log(heroes);
 
     const Cell = ({ columnIndex, rowIndex, style }: GridChildComponentProps) => (
-        <div style={style}>
+        <div  style={style}>
             {
                 heroes.filter((val) => {
                     if (searchTerm == "") {
                         return val
-                    } else if (val.name.toLocaleLowerCase().includes(searchTerm.toLowerCase())) {
+                    } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return val
+                    } else if (val.biography.fullName.toLowerCase().includes(searchTerm.toLowerCase())){
                         return val
                     }
                 }).map((heroe) => {
@@ -41,12 +43,12 @@ function HeroesList() {
 
             <Grid
                 className="Grid"
-                columnCount={3}
-                columnWidth={200}
+                columnCount={1}
+                columnWidth={500}
                 height={1000}
                 rowCount={1}
-                rowHeight={800}
-                width={1000}
+                rowHeight={1000}
+                width={600}
             >
                 {Cell}
 

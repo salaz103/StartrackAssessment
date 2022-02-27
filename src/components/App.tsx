@@ -5,7 +5,7 @@ import HeroesList from './HeroesList';
 function App() {
   return (
     <div>
-      <h2>Hello Heroes</h2>
+      <h2>All Heroes</h2>
       <FavoriteHeroesList/>
       <HeroesList />
     </div>
