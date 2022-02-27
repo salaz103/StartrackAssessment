@@ -1,11 +1,11 @@
-import {Heroe} from '../reducers/heroesReducer';
+import HeroesData from "../HeroesData/Heroes";
 
 type SetHeroesAction = {
     type:"SET_HEROES",
-    heroes:Heroe
+    heroes:HeroesData
 }
 
-const setHeroes=(Heroes:Heroe):SetHeroesAction=>({
+export const setHeroes=(Heroes:HeroesData):SetHeroesAction=>({
     type:"SET_HEROES",
     heroes:Heroes
 })

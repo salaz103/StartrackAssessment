@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 import { createStore } from 'redux';
 import { heroesReducer } from "./reducers/heroesReducer";
 import HeroeService from './services/heroeService';
+import { setHeroes } from './actions/heroes';
 
 export const store= createStore(heroesReducer);
 
@@ -19,7 +20,13 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-console.log(HeroeService.getAll());
+/*HeroeService.getAll().then((response:any)=>{
+  console.log(response.data)
+})*/
+
+HeroeService.getAll().then((response:any)=>{
+  store.dispatch(setHeroes(response.data))
+})
 
 
 reportWebVitals();

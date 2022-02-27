@@ -1,30 +1,20 @@
+import HeroesData from "../HeroesData/Heroes";
 
-export interface Heroe {
-      id:number;
-      name:string;
-      intelligence: number;
-      strength: number;
-      speed: number;
-      durability: number;
-      power: number;
-      combat: number;
-      xs:string;
+export interface HeroesState {
+    heroes: HeroesData[]
 }
 
-const defaultState: Heroe []= [];
-
-//ACTIONS
-type Action = {
-    type:"ADD_HEROE",
-    heroe:Heroe
+const defaultState = {
+    heroes:[]
 }
 
-export const heroesReducer = (state = defaultState, action:any) => {
+
+export const heroesReducer = (state:HeroesState = defaultState, action:any) => {
     switch (action.type) {
         case "ADD_HEROE":
-            return [...state,action.heroe]
+            return {...state, heroes:[...state.heroes, action.heroes]}
         case "SET_HEROES":
-            return action.heroes
+            return {heroes:action.heroes}
         default:
             return state;
     }

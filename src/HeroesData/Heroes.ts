@@ -1,8 +1,25 @@
+interface Powerstats{
+      intelligence: number,
+      strength: number,
+      speed: number,
+      durability: number,
+      power: number,
+      combat: number
+}
+
+interface Images{
+      xs: string,
+      sm: string,
+      md: string,
+      lg: string
+}
+
+
 export default interface HeroesData {
     id:number,
     name:string,
     slug:string,
-    powerstats:object,
+    powerstats:Powerstats,
     appearence:object,
     weight:object,
     eyeColor:string,
@@ -14,6 +31,6 @@ export default interface HeroesData {
     alignment: string,
     work:object,
     connections:object,
-    images:object
+    images:Images
   }
   

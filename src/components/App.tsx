@@ -1,8 +1,12 @@
 import React from 'react';
+import HeroesList from './HeroesList';
 
 function App() {
   return (
-<h2>Hello Heroes</h2>
+    <div>
+      <h2>Hello Heroes</h2>
+      <HeroesList />
+    </div>
   );
 }
 
