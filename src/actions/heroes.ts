@@ -11,3 +11,8 @@ export const setHeroes=(Heroes:HeroesData):SetHeroesAction=>({
     heroes:Heroes
 })
 
+
+export const removeHeroe=(Heroe:HeroesData):SetHeroesAction=>({
+    type:"SET_HEROES",
+    heroes:Heroe
+})

@@ -7,10 +7,14 @@ interface HeroesProps {
   images: Images;
 }
 
+const onclick=()=>{
+  alert("click on heroe")
+}
+
 function HeroeListItem(Heroes: HeroesProps) {
 
   return (
-    <div>
+    <div onClick={onclick}>
       <h3 >{Heroes.name}</h3>
       <img src={Heroes.images.xs} />
     </div>

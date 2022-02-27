@@ -4,12 +4,15 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { heroesReducer } from "./reducers/heroesReducer";
 import HeroeService from './services/heroeService';
 import { setHeroes } from './actions/heroes';
+import thunk from 'redux-thunk';
+import { favoritesReducer } from './reducers/favoritesReducer';
+import { rootReducer } from './store/store';
 
-export const store = createStore(heroesReducer);
+export const store = createStore(rootReducer,applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>

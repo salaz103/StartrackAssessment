@@ -7,7 +7,6 @@ export interface HeroesState {
 
 const defaultState = {
     heroes:[],
-    favoriteHeroes:[],
 }
 
 
@@ -19,6 +18,8 @@ export const heroesReducer = (state:HeroesState = defaultState, action:any) => {
             return {heroes:action.heroes}
         case "SET_TEXT_FILTER":
             return {...state,texto:action.filtert}
+        case "REMOVE_HEROE":
+            return {...state, heroes:[...state.heroes.filter(({id})=> id !== action.hero.id)]}
         default:
             return state;
     }

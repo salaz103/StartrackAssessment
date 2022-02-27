@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import { connect, useSelector } from 'react-redux';
+import { connect, useSelector, RootStateOrAny } from 'react-redux';
 import { HeroesState } from '../reducers/heroesReducer';
 import { FixedSizeGrid as Grid, GridChildComponentProps, ListChildComponentProps } from 'react-window';
-import getVisibleHeroes from '../selector/heroes';
 import HeroeListItem from './HeroeListItem';
 import '../styles.css'
+import { RootState } from '../store/store';
 
 
 
 function HeroesList() {
     const [searchTerm, setSearchTerm] = useState("");
-    const heroes = useSelector<HeroesState, HeroesState["heroes"]>((state) => state.heroes)
-    console.log(heroes);
+    const heroes = useSelector((state:RootState) => state.heroes.heroes)
+    //console.log(heroes);
 
     const Cell = ({ columnIndex, rowIndex, style }: GridChildComponentProps) => (
         <div  style={style}>
             {
-                heroes.filter((val) => {
+                heroes.filter((val:any) => {
                     if (searchTerm == "") {
                         return val
                     } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
@@ -24,7 +24,7 @@ function HeroesList() {
                     } else if (val.biography.fullName.toLowerCase().includes(searchTerm.toLowerCase())){
                         return val
                     }
-                }).map((heroe) => {
+                }).map((heroe:any) => {
                     return <HeroeListItem key={heroe.id} {...heroe} />
                 })
             }
