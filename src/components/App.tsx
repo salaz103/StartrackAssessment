@@ -1,12 +1,13 @@
 import React from 'react';
 import FavoriteHeroesList from './FavoriteHeroesList';
+import Header from './Header';
 import HeroesFilter from './HeroesFilter';
 import HeroesList from './HeroesList';
 
 function App() {
   return (
     <div>
-      <h2>All Heroes</h2>
+      <Header/>
       <FavoriteHeroesList/>
       <HeroesFilter/>
       <HeroesList />

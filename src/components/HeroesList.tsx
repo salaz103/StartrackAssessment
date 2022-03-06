@@ -14,6 +14,7 @@ function HeroesList() {
     const finalHeroes = getVisibleHeroes(heroes,searchText);
 
     return (
+        
         <div className='list-grid'>
             {
                 finalHeroes.map((heroe) => {
