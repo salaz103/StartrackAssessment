@@ -11,6 +11,7 @@ import { setHeroes } from './actions/heroes';
 import thunk from 'redux-thunk';
 import { favoritesReducer } from './reducers/favoritesReducer';
 import { rootReducer } from './store/store';
+import './styles/styles.scss'
 
 export const store = createStore(rootReducer,applyMiddleware(thunk));
 

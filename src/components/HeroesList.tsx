@@ -1,58 +1,31 @@
 import React, { useState } from 'react';
-import { connect, useSelector, RootStateOrAny } from 'react-redux';
-import { HeroesState } from '../reducers/heroesReducer';
-import { FixedSizeGrid as Grid, GridChildComponentProps, ListChildComponentProps } from 'react-window';
+import { connect, useSelector, RootStateOrAny, useDispatch } from 'react-redux';
+import { FixedSizeList as List } from 'react-window';
+import { setText } from '../actions/filters';
 import HeroeListItem from './HeroeListItem';
 import '../styles.css'
-import { RootState } from '../store/store';
+import { rootReducer, RootState } from '../store/store';
+import getVisibleHeroes from '../selector/heroes';
+import HeroesData from '../HeroesData/Heroes';
 
 
 
 function HeroesList() {
-    const [searchTerm, setSearchTerm] = useState("");
-    const heroes = useSelector((state:RootState) => state.heroes.heroes)
-    //console.log(heroes);
-
-    const Cell = ({ columnIndex, rowIndex, style }: GridChildComponentProps) => (
-        <div  style={style}>
-            {
-                heroes.filter((val:any) => {
-                    if (searchTerm == "") {
-                        return val
-                    } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                        return val
-                    } else if (val.biography.fullName.toLowerCase().includes(searchTerm.toLowerCase())){
-                        return val
-                    }
-                }).map((heroe:any) => {
-                    return <HeroeListItem key={heroe.id} {...heroe} />
-                })
-            }
-        </div>
-    );
+    const heroes:HeroesData[] = useSelector((state: RootState) => state.heroes.heroes);
+    const searchText:string= useSelector((state:RootState)=>state.filters.searchText);
+    const finalHeroes = getVisibleHeroes(heroes,searchText);
 
     return (
         <div>
-            <input
-                type="text"
-                placeholder='Look for more Heroes'
-                onChange={(event) => {
-                    setSearchTerm(event.target.value)
-                }}
-            />
+          
 
-            <Grid
-                className="Grid"
-                columnCount={1}
-                columnWidth={500}
-                height={1000}
-                rowCount={1}
-                rowHeight={1000}
-                width={600}
-            >
-                {Cell}
+            {
+                finalHeroes.map((heroe) => {
+                    return <HeroeListItem key={heroe.id} {...heroe} />
+                })
+            }
 
-            </Grid>
+
 
         </div>
 
