@@ -1,8 +1,25 @@
 .list-grid{
-   div{
-      float: left;
-      width: 23%;
-      margin-right: 2%;
-   }
+   /*div{
+    float: left;
+    width: 23%;
+    margin: 0 auto;
+    padding: 0 $m-size;
+    max-width: 80rem;
+   }*/
+
+   margin: 0 auto;
+    padding: 0 $m-size;
+    max-width: 80rem;
   
+}
+
+
+.list-item{
+   
+
+   float: left;
+    width: 23%;
+    margin: 0 auto;
+    padding: 0 $m-size;
+    max-width: 80rem;
 }

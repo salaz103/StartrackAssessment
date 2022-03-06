@@ -16,7 +16,7 @@ function HeroesFilter() {
 
 
     return (
-        <div>
+        <div className='content-container'>
             <input
                 type="text"
                 placeholder='Look for more Heroes'

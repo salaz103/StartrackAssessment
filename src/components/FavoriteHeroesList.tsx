@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useSelector, RootStateOrAny, useDispatch } from 'react-redux';
 import { FixedSizeList as List } from 'react-window';
-import { setText } from '../actions/filters';
 import HeroeListItem from './HeroeListItem';
 import '../styles.css'
 import { rootReducer, RootState } from '../store/store';

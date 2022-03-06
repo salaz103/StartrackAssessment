@@ -27,7 +27,7 @@ function HeroeListItem(Heroes: HeroesProps) {
   }
 
   return (
-    <div onClick={onclick}>
+    <div className='list-item' onClick={onclick}>
       <h3 >{Heroes.name}</h3>
       <img src={Heroes.images.xs} />
     </div>
