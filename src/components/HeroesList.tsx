@@ -8,30 +8,19 @@ import { rootReducer, RootState } from '../store/store';
 import getVisibleHeroes from '../selector/heroes';
 import HeroesData from '../HeroesData/Heroes';
 
-
-
 function HeroesList() {
     const heroes:HeroesData[] = useSelector((state: RootState) => state.heroes.heroes);
     const searchText:string= useSelector((state:RootState)=>state.filters.searchText);
     const finalHeroes = getVisibleHeroes(heroes,searchText);
 
     return (
-        <div>
-          
-
+        <div className='list-grid'>
             {
                 finalHeroes.map((heroe) => {
                     return <HeroeListItem key={heroe.id} {...heroe} />
                 })
             }
-
-
-
         </div>
-
-
-
-
     )
 }
 

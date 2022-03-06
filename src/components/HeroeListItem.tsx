@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeHeroe } from '../actions/heroes';
+import { addFavoriteHeroe, removeHeroe, StartremoveHeroe } from '../actions/heroes';
 import HeroesData, { Images, Powerstats } from '../HeroesData/Heroes';
 import { RootState } from '../store/store';
 
@@ -19,11 +19,11 @@ function HeroeListItem(Heroes: HeroesProps) {
     return heroe.id === Heroes.id;
   }))
 
-  console.log(heroObject);
-
 
   const onclick=()=>{
-    dispatch(removeHeroe(heroObject))
+    dispatch(StartremoveHeroe(heroObject))
+    //dispatch(addFavoriteHeroe(heroObject))
+    //dispatch(removeHeroe(heroObject))
   }
 
   return (
@@ -37,3 +37,5 @@ function HeroeListItem(Heroes: HeroesProps) {
 
 
 export default HeroeListItem;
+
+

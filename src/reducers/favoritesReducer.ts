@@ -12,8 +12,8 @@ const defaultState = {
 
 export const favoritesReducer = (state:favoritesState = defaultState, action:any) => {
     switch (action.type) {
-        case "ADD_FAVORITE_HEROE":
-            return {...state, favoritesHeroes:[...state.favoriteHeroes, action.heroe]}
+        case "ADD_FAVORITE":
+            return {...state, favoriteHeroes:[...state.favoriteHeroes, action.favoriteHeroe]}
         default:
             return state;
     }

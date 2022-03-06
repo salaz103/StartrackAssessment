@@ -1,4 +1,6 @@
+import { Dispatch } from 'redux';
 import HeroesData from "../HeroesData/Heroes";
+
 
 type SetHeroesAction = {
     type:"SET_HEROES",
@@ -10,13 +12,34 @@ type RemoveHeroesAction ={
     hero:HeroesData
 }
 
+type AddFavorite={
+    type:"ADD_FAVORITE",
+    favoriteHeroe:HeroesData
+}
+
 export const setHeroes=(Heroes:HeroesData):SetHeroesAction=>({
     type:"SET_HEROES",
     heroes:Heroes
 })
 
 
-export const removeHeroe=(Heroe:HeroesData):RemoveHeroesAction=>({
+export const removeHeroe=(HeroeId:HeroesData):RemoveHeroesAction=>({
     type:"REMOVE_HEROE",
-    hero:Heroe
+    hero:HeroeId
 })
+
+
+export const addFavoriteHeroe=(Heroe:HeroesData):AddFavorite=>({
+    type:"ADD_FAVORITE",
+    favoriteHeroe:Heroe
+})
+
+export const StartremoveHeroe = (heroe:HeroesData) => {
+    return (dispatch:Dispatch) => {
+            dispatch(removeHeroe(heroe));
+            dispatch(addFavoriteHeroe(heroe))
+    };
+};
+
+
+
