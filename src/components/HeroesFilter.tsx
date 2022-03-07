@@ -7,30 +7,34 @@ import { rootReducer, RootState } from '../store/store';
 
 
 function HeroesFilter() {
-    const searchText:string= useSelector((state:RootState)=>state.filters.searchText);
-    const dispatch= useDispatch();
+  const searchText: string = useSelector((state: RootState) => state.filters.searchText);
+  const dispatch = useDispatch();
 
-      const handleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
-        dispatch(setText(e.target.value))
-      }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setText(e.target.value))
+  }
 
 
-    return (
-        <div className='content-container'>
-            <input
-                type="text"
-                placeholder='Look for more Heroes'
-                autoFocus
-                value={searchText}
-                onChange={handleChange}
-            />
-
+  return (
+    <div className='content-container-filter'>
+      <div className='input-group'>
+        <div className="input-group__item">
+          <h1>All superheroes</h1>
         </div>
 
-
-
-
-    )
+        <div className="input-group__item">
+          <input
+            className='text-input'
+            type="text"
+            placeholder='Search'
+            autoFocus
+            value={searchText}
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+    </div>
+  )
 }
 
 

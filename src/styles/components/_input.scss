@@ -1,0 +1,16 @@
+.text-input{
+    border: 1px solid #cacccd;
+    background: $grey;
+    color: $off-white;
+    height: 25px;
+    font-size: $font-size-large;
+    font-weight: 300;
+    padding: $s-size;
+    margin-top: 3.5rem;
+  
+}
+
+::placeholder{
+    color: $off-white;
+}
+

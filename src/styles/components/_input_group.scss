@@ -1,0 +1,11 @@
+.input-group{
+    //DISPLAY ->FLEX, MAKES ITEMS TO GO FROM LEFT TO RIGHT
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $m-size;
+    justify-content: space-between;
+}
+
+.input-group__item{
+    margin-bottom: $s-size;
+}
