@@ -5,6 +5,7 @@ import HeroesFilter from './HeroesFilter';
 import HeroesList from './HeroesList';
 
 function App() {
+
   return (
     <div>
       <Header/>

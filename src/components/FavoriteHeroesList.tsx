@@ -4,11 +4,17 @@ import { FixedSizeList as List } from 'react-window';
 import HeroeListItem from './HeroeListItem';
 import '../styles.css'
 import { rootReducer, RootState } from '../store/store';
+import useCollapse from "react-collapsed";
 import HeroesData from '../HeroesData/Heroes';
 
 function FavoriteHeroesList() {
-
     const heroes: HeroesData[] = useSelector((state: RootState) => state.favorites.favoriteHeroes);
+    const [ isExpanded, setExpanded ] = useState(false);
+    const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
+
+    function handleOnClick() {
+        setExpanded(!isExpanded);
+    }
 
     const Row = () => (
 
@@ -31,12 +37,13 @@ function FavoriteHeroesList() {
                  })
              }
          </div>*/
-        <div className='content-container'>
+        <div className='content-container' >
             <div className='list-header'>
                 <img src="/assets/small-heart/small-heart.svg" />
-                <div className="show-for-mobile">Liked</div>
+                <div>Liked</div>
+                <img src='/assets/arrow-up/arrow-up.svg' {...getToggleProps({onClick: handleOnClick})} ></img>
             </div>
-            <div className='list-body'>
+            <div className='list-body' {...getCollapseProps()} >
                 <List
                     height={300}
                     itemCount={1}
